@@ -1,0 +1,25 @@
+{
+  "name": "study-island",
+  "version": "1.0.0",
+  "description": "无人自习室O2O平台",
+  "author": "majialu-love-zouyutong",
+  "license": "ISC",
+  "packageManager": "pnpm@10.13.1",
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.1.7",
+    "turbo": "^2.5.4"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "commit": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
