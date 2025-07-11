@@ -3,5 +3,4 @@ packages:
   - apps/*
 
 onlyBuiltDependencies:
-  - '@nestjs/core'
-  - '@swc/core'
+  - unrs-resolver
