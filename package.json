@@ -15,7 +15,12 @@
   },
   "scripts": {
     "prepare": "husky",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "build": "turbo build",
+    "start": "turbo start",
+    "lint": "turbo lint",
+    "dev": "turbo dev",
+    "check-types": "turbo check-types"
   },
   "config": {
     "commitizen": {
