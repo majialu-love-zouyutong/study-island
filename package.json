@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "turbo dev",
     "commit": "git-cz",
-    "lint": "turbo lint"
+    "lint": "turbo lint",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +18,11 @@
     "@commitlint/config-conventional": "^19.8.1",
     "commitizen": "^4.3.1",
     "husky": "^9.1.7",
+    "postcss-scss": "^4.0.9",
+    "prettier": "^3.6.2",
+    "stylelint": "^16.21.1",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-order": "^7.0.0",
     "turbo": "^2.5.4"
   },
   "config": {

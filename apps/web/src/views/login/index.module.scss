@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  height: 100vh;
+
+  .cover {
+    width: 50%;
+  }
+
+  .login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    .form {
+      width: 600px;
+      height: 500px;
+      padding: 40px;
+      background-color: var(--semi-color-bg-1);
+      border: 1px solid var(--semi-color-border);
+      box-shadow: 1px 1px 1px 1px var(--semi-color-shadow);
+    }
+  }
+}

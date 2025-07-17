@@ -1,0 +1,36 @@
+.errorBoundary {
+  padding: 24px;
+  background-color: #fff0f0;
+  color: #a70000;
+  border: 1px solid #ff4d4f;
+  border-radius: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 12px rgb(255 77 79 / 0.25);
+  max-width: 600px;
+  margin: 40px auto;
+  user-select: text;
+}
+
+.errorBoundary h2 {
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.errorBoundary details {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: #fff6f6;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #4a0000;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  line-height: 1.4;
+}
+
+.errorBoundary details summary {
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
