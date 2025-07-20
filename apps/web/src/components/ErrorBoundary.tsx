@@ -1,7 +1,6 @@
 import React from 'react';
 import type { ReactNode, ErrorInfo } from 'react';
 import styles from './ErrorBoundary.module.scss';
-
 interface ErrorBoundaryProps {
   children: ReactNode;
 }
@@ -30,7 +29,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
   render() {
     if (this.state.hasError) {
       return (
-        <div className={styles.errorBoundary}>
+        <div className={styles['error-boundary']}>
           <h2>出错了，页面无法正常显示。</h2>
           <details>
             <summary>查看错误详情</summary>

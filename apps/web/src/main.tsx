@@ -1,10 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router';
-import { LoginPage } from './views/login';
+import { LoginPage } from '@/views/login';
 import 'reset-css';
-import './index.scss';
-import { followSystemTheme } from './utils/follow-system-theme';
+import '@/index.scss';
+import { followSystemTheme } from '@/utils';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +18,6 @@ followSystemTheme();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-      <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </StrictMode>,
 );

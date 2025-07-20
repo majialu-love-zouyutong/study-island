@@ -7,19 +7,37 @@
   }
 
   .login {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex: 1;
 
+    .icon {
+      position: absolute;
+      top: $spacing-super-loose;
+      right: $spacing-super-loose;
+      right: 20px;
+    }
+
     .form {
       width: 600px;
-      height: 500px;
+      height: 400px;
       padding: 40px;
       background-color: var(--semi-color-bg-1);
       border: 1px solid var(--semi-color-border);
       box-shadow: 1px 1px 1px 1px var(--semi-color-shadow);
+
+      .title {
+        text-align: center;
+        font-size: $font-size-header-1;
+        font-weight: $font-weigth-bold;
+      }
+
+      .space {
+        width: 100%;
+      }
     }
   }
 }
