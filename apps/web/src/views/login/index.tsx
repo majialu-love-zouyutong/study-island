@@ -6,6 +6,7 @@ import { login } from '@/utils';
 import { useDebouncedCallback } from '@/hooks';
 import type React from 'react';
 import { useNavigate } from 'react-router';
+import { APP_NAME } from '@/consts';
 
 /**
  * 登录按钮
@@ -39,6 +40,11 @@ const LoginButton = () => {
 };
 
 /**
+ * 登录标题
+ */
+const LOGIN_TITLE = `欢迎来到${APP_NAME}`;
+
+/**
  * 登录页面
  * @returns 登录页面
  */
@@ -59,7 +65,7 @@ export const LoginPage: React.FC = () => {
           <div className={style.logo}>
             <Logo size={100} />
           </div>
-          <h1 className={style.title}>欢迎来到学习岛</h1>
+          <h1 className={style.title}>{LOGIN_TITLE}</h1>
           <Form.Input field="username" label="用户名" />
           <Form.Input field="password" label="密码" mode="password" />
           <Space className={style.space} align="start" vertical spacing={'loose'}>

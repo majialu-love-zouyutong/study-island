@@ -1,115 +1,99 @@
-import React from 'react';
-import { Layout, Nav, Button, Breadcrumb, Skeleton, Avatar } from '@douyinfe/semi-ui';
-import {
-  IconBell,
-  IconHelpCircle,
-  IconBytedanceLogo,
-  IconHome,
-  IconHistogram,
-  IconLive,
-  IconSetting,
-  IconSemiLogo,
-} from '@douyinfe/semi-icons';
+import React, { useState } from 'react';
+import { Layout, Nav, Avatar, Dropdown, Toast } from '@douyinfe/semi-ui';
+import { IconHome, IconHistogram, IconLive, IconSetting } from '@douyinfe/semi-icons';
+import { Logo, ThemeIcon } from '@/components';
+import style from './index.module.scss';
+import { APP_NAME } from '@/consts';
+import beian from '@/assets/img/beian.png';
+import { logout } from '@/utils';
+import { Outlet, useNavigate } from 'react-router';
+
+/**
+ * 导航栏数据项
+ */
+const navigationItems = [
+  { itemKey: 'Home', text: '首页', icon: <IconHome size="large" /> },
+  { itemKey: 'Histogram', text: '基础数据', icon: <IconHistogram size="large" /> },
+  { itemKey: 'Live', text: '测试功能', icon: <IconLive size="large" /> },
+  { itemKey: 'Setting', text: '设置', icon: <IconSetting size="large" /> },
+];
 
 export const HomePage: React.FC = () => {
   const { Header, Footer, Sider, Content } = Layout;
+  // 是否折叠
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    if (logout()) {
+      Toast.success('退出成功');
+      navigate('/');
+    }
+  };
   return (
-    <Layout style={{ border: '1px solid var(--semi-color-border)' }}>
-      <Sider style={{ backgroundColor: 'var(--semi-color-bg-1)' }}>
+    <Layout className={style.layout}>
+      <Sider className={style.sider}>
         <Nav
-          defaultSelectedKeys={['Home']}
-          style={{ maxWidth: 220, height: '100%' }}
-          items={[
-            { itemKey: 'Home', text: '首页', icon: <IconHome size="large" /> },
-            { itemKey: 'Histogram', text: '基础数据', icon: <IconHistogram size="large" /> },
-            { itemKey: 'Live', text: '测试功能', icon: <IconLive size="large" /> },
-            { itemKey: 'Setting', text: '设置', icon: <IconSetting size="large" /> },
-          ]}
+          className={style.nav}
+          defaultSelectedKeys={[navigationItems[0].itemKey]}
+          items={navigationItems}
           header={{
-            logo: <IconSemiLogo style={{ fontSize: 36 }} />,
-            text: 'Semi Design',
+            logo: <Logo size={isCollapsed ? 40 : 100} />,
+            text: <div className={style.text}>{APP_NAME}</div>,
           }}
           footer={{
             collapseButton: true,
+            onClick: () => {
+              setIsCollapsed(!isCollapsed);
+            },
           }}
         />
       </Sider>
-      <Layout>
-        <Header style={{ backgroundColor: 'var(--semi-color-bg-1)' }}>
+      <Layout className={style['layout-content']}>
+        <Header className={style.header}>
           <Nav
             mode="horizontal"
             footer={
-              <>
-                <Button
-                  theme="borderless"
-                  icon={<IconBell size="large" />}
-                  style={{
-                    color: 'var(--semi-color-text-2)',
-                    marginRight: '12px',
-                  }}
-                />
-                <Button
-                  theme="borderless"
-                  icon={<IconHelpCircle size="large" />}
-                  style={{
-                    color: 'var(--semi-color-text-2)',
-                    marginRight: '12px',
-                  }}
-                />
-                <Avatar color="orange" size="small">
-                  YJ
-                </Avatar>
-              </>
+              <div className={style['header-footer']}>
+                <ThemeIcon className={style.item} size={32} />
+                <Dropdown
+                  position="bottomRight"
+                  render={
+                    <Dropdown.Menu>
+                      <Dropdown.Item onClick={handleLogout} key="logout">
+                        退出登录
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  }
+                >
+                  <Avatar color="orange" size={'small'}>
+                    Admin
+                  </Avatar>
+                </Dropdown>
+              </div>
             }
           ></Nav>
         </Header>
-        <Content
-          style={{
-            padding: '24px',
-            backgroundColor: 'var(--semi-color-bg-0)',
-          }}
-        >
-          <Breadcrumb
-            style={{
-              marginBottom: '24px',
-            }}
-            routes={['首页', '当这个页面标题很长时需要省略', '上一页', '详情页']}
-          />
-          <div
-            style={{
-              borderRadius: '10px',
-              border: '1px solid var(--semi-color-border)',
-              height: '376px',
-              padding: '32px',
-            }}
-          >
-            <Skeleton placeholder={<Skeleton.Paragraph rows={2} />} loading={true}>
-              <p>Hi, Bytedance dance dance.</p>
-              <p>Hi, Bytedance dance dance.</p>
-            </Skeleton>
-          </div>
+        <Content className={style.content}>
+          <Outlet />
         </Content>
-        <Footer
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            padding: '20px',
-            color: 'var(--semi-color-text-2)',
-            backgroundColor: 'rgba(var(--semi-grey-0), 1)',
-          }}
-        >
-          <span
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            <IconBytedanceLogo size="large" style={{ marginRight: '8px' }} />
-            <span>Copyright © 2019 ByteDance. All Rights Reserved. </span>
+        <Footer className={style.footer}>
+          <span>©️2025 studyisland.xyz</span>
+          <span>
+            <img src={beian} className={style.beian} />
+            <a
+              className={style.a}
+              href="https://beian.mps.gov.cn/#/query/webSearch?code=51019002007740"
+              rel="noreferrer"
+              target="_blank"
+            >
+              川公网安备51019002007740号
+            </a>
           </span>
           <span>
-            <span style={{ marginRight: '24px' }}>平台客服</span>
-            <span>反馈建议</span>
+            <a className={style.a} href="https://beian.miit.gov.cn/" target="_blank">
+              晋ICP备2025055007号-1
+            </a>
           </span>
         </Footer>
       </Layout>
