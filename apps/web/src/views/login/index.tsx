@@ -1,9 +1,11 @@
 import cover from '@/assets/img/cover.png';
 import style from './index.module.scss';
 import { Button, Checkbox, Form, Space, Toast, useFormState } from '@douyinfe/semi-ui';
-import { ThemeIcon } from '@/components';
+import { Logo, ThemeIcon } from '@/components';
 import { login } from '@/utils';
 import { useDebouncedCallback } from '@/hooks';
+import type React from 'react';
+import { useNavigate } from 'react-router';
 
 /**
  * 登录按钮
@@ -12,6 +14,7 @@ import { useDebouncedCallback } from '@/hooks';
  */
 const LoginButton = () => {
   const formState = useFormState();
+  const navigate = useNavigate();
   const { username, password } = formState.values;
 
   const handleLogin = useDebouncedCallback(
@@ -19,6 +22,7 @@ const LoginButton = () => {
       const status = login(username, password);
       if (status) {
         Toast.success('登录成功');
+        navigate('/');
       }
     },
     2000,
@@ -38,7 +42,7 @@ const LoginButton = () => {
  * 登录页面
  * @returns 登录页面
  */
-export const LoginPage = () => {
+export const LoginPage: React.FC = () => {
   return (
     <div className={style.container}>
       <img src={cover} alt="封面图" className={style.cover} />
@@ -52,6 +56,9 @@ export const LoginPage = () => {
           className={style.form}
           onValueChange={(values) => console.log(values)}
         >
+          <div className={style.logo}>
+            <Logo size={100} />
+          </div>
           <h1 className={style.title}>欢迎来到学习岛</h1>
           <Form.Input field="username" label="用户名" />
           <Form.Input field="password" label="密码" mode="password" />

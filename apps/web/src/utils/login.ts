@@ -11,7 +11,7 @@ export const login = (username: string, password: string) => {
   } else {
     return false;
   }
-}
+};
 
 /**
  * 退出登录函数，返回是否退出登录成功的布尔值
@@ -20,7 +20,7 @@ export const login = (username: string, password: string) => {
 export const logout = () => {
   window.localStorage.removeItem('token');
   return true;
-}
+};
 
 /**
  * 判断当前是否登录
@@ -29,4 +29,4 @@ export const logout = () => {
 export const isLogin = () => {
   const token = window.localStorage.getItem('token');
   return !!token;
-}
+};
