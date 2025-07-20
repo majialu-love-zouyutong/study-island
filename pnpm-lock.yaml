@@ -240,7 +240,7 @@ importers:
         version: 2.83.0(acorn@8.15.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@reduxjs/toolkit':
         specifier: ^2.8.2
-        version: 2.8.2(react@18.3.1)
+        version: 2.8.2(react-redux@9.2.0(@types/react@18.3.1)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
       '@visactor/react-vchart':
         specifier: ^2.0.0
         version: 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -250,6 +250,9 @@ importers:
       react-dom:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
+      react-redux:
+        specifier: ^9.2.0
+        version: 9.2.0(@types/react@18.3.1)(react@18.3.1)(redux@5.0.1)
       react-router:
         specifier: ^7.7.0
         version: 7.7.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2462,6 +2465,9 @@ packages:
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
+
+  '@types/use-sync-external-store@0.0.6':
+    resolution: {integrity: sha512-zFDAD+tlpf2r4asuHEj0XH6pY6i0g5NeAHPn+15wk3BV6JA69eERFXC1gyGThDkVa1zCyKr5jox1+2LbV/AMLg==}
 
   '@types/yargs-parser@21.0.3':
     resolution: {integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==}
@@ -6417,6 +6423,18 @@ packages:
       '@types/react':
         optional: true
 
+  react-redux@9.2.0:
+    resolution: {integrity: sha512-ROY9fvHhwOD9ySfrF0wmvu//bKCQ6AeZZq1nJNtbDC+kk5DuSuNX/n6YWYF/SYy7bSba4D4FSz8DJeKY/S/r+g==}
+    peerDependencies:
+      '@types/react': ^18.2.25 || ^19
+      react: ^18.0 || ^19
+      redux: ^5.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      redux:
+        optional: true
+
   react-refresh@0.14.2:
     resolution: {integrity: sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==}
     engines: {node: '>=0.10.0'}
@@ -9958,7 +9976,7 @@ snapshots:
     dependencies:
       nanoid: 3.3.11
 
-  '@reduxjs/toolkit@2.8.2(react@18.3.1)':
+  '@reduxjs/toolkit@2.8.2(react-redux@9.2.0(@types/react@18.3.1)(react@18.3.1)(redux@5.0.1))(react@18.3.1)':
     dependencies:
       '@standard-schema/spec': 1.0.0
       '@standard-schema/utils': 0.3.0
@@ -9968,6 +9986,7 @@ snapshots:
       reselect: 5.1.1
     optionalDependencies:
       react: 18.3.1
+      react-redux: 9.2.0(@types/react@18.3.1)(react@18.3.1)(redux@5.0.1)
 
   '@resvg/resvg-js-android-arm-eabi@2.4.1':
     optional: true
@@ -10395,6 +10414,8 @@ snapshots:
   '@types/unist@2.0.11': {}
 
   '@types/unist@3.0.3': {}
+
+  '@types/use-sync-external-store@0.0.6': {}
 
   '@types/yargs-parser@21.0.3': {}
 
@@ -15340,6 +15361,15 @@ snapshots:
       - supports-color
       - utf-8-validate
 
+  react-redux@9.2.0(@types/react@18.3.1)(react@18.3.1)(redux@5.0.1):
+    dependencies:
+      '@types/use-sync-external-store': 0.0.6
+      react: 18.3.1
+      use-sync-external-store: 1.5.0(react@18.3.1)
+    optionalDependencies:
+      '@types/react': 18.3.1
+      redux: 5.0.1
+
   react-refresh@0.14.2: {}
 
   react-resizable@3.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
@@ -16674,6 +16704,10 @@ snapshots:
   use-latest-callback@0.2.4(react@19.0.0):
     dependencies:
       react: 19.0.0
+
+  use-sync-external-store@1.5.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   use-sync-external-store@1.5.0(react@19.0.0):
     dependencies:

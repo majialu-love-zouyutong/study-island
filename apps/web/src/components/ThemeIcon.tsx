@@ -1,8 +1,9 @@
-import { isDark, switchTheme } from '@/utils';
+import { switchTheme } from '@/utils';
 import { IconMoon, IconSun } from '@douyinfe/semi-icons';
-import React, { useState } from 'react';
+import React from 'react';
 import style from './ThemeIcon.module.scss';
 import { Tooltip } from '@douyinfe/semi-ui';
+import { useAppSelector } from '@/hooks';
 
 export interface IThemeIconProps {
   className?: string;
@@ -16,13 +17,11 @@ export interface IThemeIconProps {
  */
 export const ThemeIcon: React.FC<IThemeIconProps> = (props) => {
   const { className, size } = props;
-  const [dark, setDark] = useState(isDark());
-
+  const isDark = useAppSelector((state) => state.theme.isDark);
   /**
    * 切换主题处理函数
    */
   const handleSwitchTheme = () => {
-    setDark(!dark);
     switchTheme();
   };
 
@@ -35,8 +34,8 @@ export const ThemeIcon: React.FC<IThemeIconProps> = (props) => {
         cursor: 'pointer',
       }}
     >
-      <Tooltip content={dark ? '亮色模式' : '暗色模式'} position={'bottom'}>
-        {dark ? <IconSun className={style.icon} /> : <IconMoon className={style.icon} />}
+      <Tooltip content={isDark ? '亮色模式' : '暗色模式'} position={'bottom'}>
+        {isDark ? <IconSun className={style.icon} /> : <IconMoon className={style.icon} />}
       </Tooltip>
     </div>
   );
