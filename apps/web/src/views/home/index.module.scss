@@ -6,13 +6,13 @@
     background-color: var(--semi-color-bg-1);
 
     .nav {
-      max-width: 180px;
       height: 100%;
+      max-width: 180px;
 
       .text {
+        font-size: $font-size-header-1;
         writing-mode: vertical-lr;
         margin-left: 15px;
-        font-size: $font-size-header-1;
       }
     }
   }
@@ -45,7 +45,7 @@
     justify-content: space-between;
     padding: 10px 200px;
     color: var(--semi-color-text-2);
-    background-color: rgba(var(--semi-grey-0), 1);
+    background-color: rgb(var(--semi-grey-0), 1);
 
     .beian {
       width: 15px;

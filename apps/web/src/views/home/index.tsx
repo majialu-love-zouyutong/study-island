@@ -36,6 +36,7 @@ export const HomePage: React.FC = () => {
         <Nav
           className={style.nav}
           defaultSelectedKeys={[navigationItems[0].itemKey]}
+          onCollapseChange={(isCollapsed) => setIsCollapsed(isCollapsed)}
           items={navigationItems}
           header={{
             logo: <Logo size={isCollapsed ? 40 : 100} />,
@@ -43,9 +44,6 @@ export const HomePage: React.FC = () => {
           }}
           footer={{
             collapseButton: true,
-            onClick: () => {
-              setIsCollapsed(!isCollapsed);
-            },
           }}
         />
       </Sider>
