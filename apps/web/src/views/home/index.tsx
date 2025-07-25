@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import { Layout, Nav, Avatar, Dropdown, Toast } from '@douyinfe/semi-ui';
-import { IconHome, IconHistogram, IconLive, IconSetting } from '@douyinfe/semi-icons';
+import {
+  IconHome,
+  IconSetting,
+  IconGridView,
+  IconUser,
+  IconOrderedList,
+  IconWrench,
+  IconSignal,
+  IconVolume2,
+} from '@douyinfe/semi-icons';
 import { Logo, ThemeIcon } from '@/components';
 import style from './index.module.scss';
 import { APP_NAME } from '@/consts';
@@ -12,10 +21,14 @@ import { Outlet, useNavigate } from 'react-router';
  * 导航栏数据项
  */
 const navigationItems = [
-  { itemKey: 'Home', text: '首页', icon: <IconHome size="large" /> },
-  { itemKey: 'Histogram', text: '基础数据', icon: <IconHistogram size="large" /> },
-  { itemKey: 'Live', text: '测试功能', icon: <IconLive size="large" /> },
-  { itemKey: 'Setting', text: '设置', icon: <IconSetting size="large" /> },
+  { itemKey: 'home', text: '首页', icon: <IconHome size="large" /> },
+  { itemKey: 'seat', text: '座位管理', icon: <IconGridView size="large" /> },
+  { itemKey: 'user', text: '用户管理', icon: <IconUser size="large" /> },
+  { itemKey: 'order', text: '订单管理', icon: <IconOrderedList size="large" /> },
+  { itemKey: 'devices', text: '设备管理', icon: <IconWrench size="large" /> },
+  { itemKey: 'data', text: '数据统计', icon: <IconSignal size="large" /> },
+  { itemKey: 'setting', text: '系统设置', icon: <IconSetting size="large" /> },
+  { itemKey: 'announcement', text: '公告管理', icon: <IconVolume2 size="large" /> },
 ];
 
 export const HomePage: React.FC = () => {
