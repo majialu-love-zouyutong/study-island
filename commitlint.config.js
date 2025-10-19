@@ -2,7 +2,7 @@
  * @Author: majialu-love-zouyutong majialu0220@gmail.com
  * @Date: 2025-10-19 22:39:14
  * @LastEditors: majialu-love-zouyutong majialu0220@gmail.com
- * @LastEditTime: 2025-10-19 23:58:27
+ * @LastEditTime: 2025-10-20 00:17:29
  * @FilePath: \study-island\commitlint.config.js
  * @Description: Commitlint 配置文件 - 用于规范 Git 提交信息格式
  *
@@ -98,22 +98,22 @@ export default {
           return [
             isValid,
             `❌ 提交类型 "${type}" 不在允许的范围内！
-💡 请使用以下类型之一:
-   ✨ feat      - 新功能
-   🐛 fix       - 修复bug
-   📚 docs      - 文档变更
-   🎨 style     - 代码格式
-   📦 refactor  - 代码重构
-   🚀 perf      - 性能优化
-   🧪 test      - 测试相关
-   🏗️  build     - 构建/依赖变更
-   👷 ci        - 持续集成
-   🔧 chore     - 其他修改
-   ⏪ revert    - 回滚提交
-   🚧 wip       - 进行中的工作
-   🔁 workflow  - 工作流相关
-   🔤 types     - 类型定义
-   🏷️  release   - 版本发布`,
+            💡 请使用以下类型之一:
+              ✨ feat      - 新功能
+              🐛 fix       - 修复bug
+              📚 docs      - 文档变更
+              🎨 style     - 代码格式
+              📦 refactor  - 代码重构
+              🚀 perf      - 性能优化
+              🧪 test      - 测试相关
+              🏗️  build     - 构建/依赖变更
+              👷 ci        - 持续集成
+              🔧 chore     - 其他修改
+              ⏪ revert    - 回滚提交
+              🚧 wip       - 进行中的工作
+              🔁 workflow  - 工作流相关
+              🔤 types     - 类型定义
+              🏷️  release   - 版本发布`,
           ];
         },
         "header-max-length": ({ header }) => {
